@@ -21,7 +21,7 @@ public class HomePageTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         HomePage objHomePage = new HomePage(driver);
-
+        objHomePage.clickOrderButtonDown();
         objHomePage.clickCookieButton();
         objHomePage.testAccordionFull();
 

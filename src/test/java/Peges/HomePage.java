@@ -16,8 +16,7 @@ public class HomePage {
 
     //Локаторы для выпадающего списка
     private final By cookieButton = By.className("App_CookieButton__3cvqF");
-
-    private final By orderButtonUp = By.className("Button_Button__ra12g");
+    private final By buttonOrderD = By.className("Button_Middle__1CSJM");
     public By scrollQuestions = By.id("accordion__heading-0"); //Локатор блока FAQ
     public By scrollQuestions1 = By.id("accordion__heading-1");
     public By scrollQuestions2 = By.id("accordion__heading-2");
@@ -100,8 +99,11 @@ public class HomePage {
     public void clickCookieButton() {
         driver.findElement(cookieButton).click();
     }
-    //Кнопка Заказать
-    public void clickOrderButtonUp() {
-        driver.findElement(orderButtonUp).click();
+    //Кнопка Заказать Внизу
+    public void clickOrderButtonDown(){
+        driver.findElement(buttonOrderD).click();
+        WebElement element = driver.findElement(By.xpath("//div/div/div[4]/div[2]/div[5]/button"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        element.click();
     }
 }

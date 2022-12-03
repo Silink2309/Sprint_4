@@ -3,33 +3,14 @@ package Peges;
 
 import org.junit.After;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
-@RunWith(Parameterized.class)
+
 public  class OrderPageTest {
     private WebDriver driver;
-    private String name;
-    private String surNam;
-
-    public OrderPageTest(String name, String surName) {
-        this.name=name;
-        this.surNam=surNam;
-    }
-
-
-    @Parameterized.Parameters
-    public static Object[][] getDataForOrder () {
-        return new Object[][]{
-                {"maks","Smirnov"},
-                {"YYY","DDD"},
-        };
-    }
-
 
     @Test
     public void Test() {
@@ -42,12 +23,13 @@ public  class OrderPageTest {
         objHomePage.clickCookieButton();
 
 
-        Pages.OrderPage objOrderPage = new Pages.OrderPage(driver);
+       OrderPage objOrderPage = new OrderPage(driver);
         objOrderPage.fillForm();
         objOrderPage.rentFill();
 
 
     }
+
     @After
     public void tearDown() {
         driver.quit();
