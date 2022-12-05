@@ -14,7 +14,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public  class OrderPageTest {
     private WebDriver driver;
     private static String  urlScooter= "https://qa-scooter.praktikum-services.ru/";
-
+//
         @Before
         public void openTest() {
             //  driver =new ChromeDriver()
