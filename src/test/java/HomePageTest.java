@@ -1,31 +1,40 @@
 
-import Peges.HomePage;
+import org.junit.Before;
+import peges.HomePage;
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.util.concurrent.TimeUnit;
 
 
 public class HomePageTest {
     private WebDriver driver;
+    private String  urlScooter= "https://qa-scooter.praktikum-services.ru/";
 
-
-    @Test
-    public void homePageTest(){
-        //  driver =new ChromeDriver() ; ////Тестировал на Safari , в конце проверил на Chrome
-        //import удалился когда закоментировал
+    @Before
+    public void openTest(){
+      //  driver =new ChromeDriver()
         driver = new SafariDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.get(urlScooter);
 
+    }
+    //
+    @Test
+    public void orderDown(){
+
+       HomePage objHomePage = new HomePage(driver);
+       objHomePage.clickOrderButtonDown();
+    }
+    @Test
+    public void cookieTest(){
         HomePage objHomePage = new HomePage(driver);
-        objHomePage.clickOrderButtonDown();
         objHomePage.clickCookieButton();
+    }
+    @Test
+    public void accordionTest(){
+        HomePage objHomePage = new HomePage(driver);
         objHomePage.testAccordionFull();
-
-
     }
     @After
     public void tearDown() {

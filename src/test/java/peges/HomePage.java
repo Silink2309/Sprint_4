@@ -1,4 +1,4 @@
-package Peges;
+package peges;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -99,7 +99,6 @@ public class HomePage {
     public void clickCookieButton() {
         driver.findElement(cookieButton).click();
     }
-    //Кнопка Заказать Внизу
     public void clickOrderButtonDown(){
         driver.findElement(buttonOrderD).click();
         WebElement element = driver.findElement(By.xpath("//div/div/div[4]/div[2]/div[5]/button"));
