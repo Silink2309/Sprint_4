@@ -10,15 +10,7 @@ import java.awt.event.KeyEvent;
 
 
 public class HomePageTest {
-    boolean pushButton; //где-то в переменных класса
-    //Куча кода
 
-    public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_DELETE) {
-            pushButton=true;
-        }
-        else pushButton=false;
-    }
     private WebDriver driver;
     private String  urlScooter= "https://qa-scooter.praktikum-services.ru/";
 //
