@@ -45,7 +45,7 @@ public  class OrderPageTest {
             objHomePage.clickOrderButtonDown();
             objOrderPage.fillForm("Петр","Тыгов","Москва","89998887766","Котельники");
             objOrderPage.rentFill("Тра та та ");
-            objOrderPage. checkOrderStatusCompleted();
+            objOrderPage.checkOrderStatusCompleted();
         }
 
 
