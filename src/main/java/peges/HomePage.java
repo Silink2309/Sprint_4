@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 
@@ -88,18 +87,14 @@ public class HomePage {
 
     // Принять куки
     public void clickCookieButton() {
-        driver.findElement(cookieButton).isEnabled();
         driver.findElement(cookieButton).click();
-
         // Уже не знаю как сделать проверку, мозг сломал, KeyEvent пробывал еще пока что не получается((
-
-
     }
     public void clickOrderButtonDown(){
-        driver.findElement(buttonOrderD).isEnabled();
         driver.findElement(buttonOrderD).click();
         WebElement element = driver.findElement(By.xpath("//div/div/div[4]/div[2]/div[5]/button"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
         element.click();
     }
+
 }

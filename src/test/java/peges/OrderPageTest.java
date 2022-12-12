@@ -28,11 +28,11 @@ public  class OrderPageTest {
             OrderPage objOrderPage = new OrderPage(driver);
 
             HomePage objHomePage = new HomePage(driver);
-            objHomePage.clickCookieButton();
-            objOrderPage.clickOrderButtonUp();
+           objHomePage.clickCookieButton();
+            objOrderPage.chooseOrderButtonAndClick("upper");
             objOrderPage.fillForm("Василий","Пупкин","Москва","89998887766","Сокольники");
             objOrderPage.rentFill("пиу пиу ");
-            objOrderPage. checkOrderStatusCompleted();
+            objOrderPage.checkOrderStatusCompleted();
 
         }
 
@@ -41,8 +41,7 @@ public  class OrderPageTest {
             OrderPage objOrderPage = new OrderPage(driver);
 
             HomePage objHomePage = new HomePage(driver);
-            objHomePage.clickCookieButton();
-            objHomePage.clickOrderButtonDown();
+            objOrderPage.chooseOrderButtonAndClick("lower");
             objOrderPage.fillForm("Петр","Тыгов","Москва","89998887766","Котельники");
             objOrderPage.rentFill("Тра та та ");
             objOrderPage.checkOrderStatusCompleted();

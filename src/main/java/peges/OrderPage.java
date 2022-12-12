@@ -5,13 +5,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public  class OrderPage {
-//
-    private WebDriver driver;
+import static org.junit.Assert.assertEquals;
 
-    private final By buttonOrder = By.className("Button_Button__ra12g");
+public  class OrderPage {
+
+    //
+    private WebDriver driver;
+    private By upperOrderButton = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
+    // кнопка "Заказать" снизу
+    private By lowerOrderButton = By.className("Button_Middle__1CSJM");
     private By orderStatusCompleted = By.xpath("//*[contains(text(), 'Заказ оформлен')]");
-    private final By buttonOrderD = By.className("Button_Button__ra12g Button_Middle__1CSJM");
     private final By nameField = By.xpath(".//div/div[2]/div[2]/div[1]/input");
     private final By surName = By.xpath(".//div/div[2]/div[2]/div[2]/input");
     private final By addressField = By.xpath(".//div/div[2]/div[2]/div[3]/input");
@@ -58,7 +61,7 @@ public  class OrderPage {
     }
 //1 я страница
     public void clickOrderButtonUp(){
-        driver.findElement(buttonOrder).click();
+        driver.findElement(upperOrderButton).click();
     }
 
     public void fillName(String name){
@@ -122,8 +125,22 @@ public  class OrderPage {
     }
     //Проверка появление окна Заказ оформлен
     public void checkOrderStatusCompleted(){
-        driver.findElement(orderStatusCompleted).isEnabled();
+        assertEquals("Заказ оформлен Номер заказа: .  Запишите его: пригодится, чтобы отслеживать статус",getResultMessage());
     }
-
-
+    public String getResultMessage(){
+        return driver.findElement(orderStatusCompleted).getText();
+    }
+    public void clickOrderButtonDown(){
+        WebElement element = driver.findElement(lowerOrderButton);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        element.click();
+    }
+    public void chooseOrderButtonAndClick(String buttonLocation){
+        if(buttonLocation=="upper") {
+            clickOrderButtonUp();
+        } else if (buttonLocation=="lower") {
+            clickOrderButtonDown();
+        }
 }
+}
+
